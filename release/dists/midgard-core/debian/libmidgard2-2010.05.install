@@ -1,2 +1,4 @@
-usr/lib/libmidgard2.so.2010.5.0
-usr/lib/libmidgard2.so.2010
+#! /usr/bin/dh-exec
+
+usr/lib/${DEB_HOST_MULTIARCH}/libmidgard2.so.2010.5.0
+usr/lib/${DEB_HOST_MULTIARCH}/libmidgard2.so.2010

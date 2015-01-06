@@ -1,1 +1,3 @@
-usr/lib/girepository-1.0/Midgard-10.05.typelib  
+#! /usr/bin/dh-exec
+
+usr/lib/${DEB_HOST_MULTIARCH}/girepository-1.0/Midgard-10.05.typelib  

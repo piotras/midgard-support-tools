@@ -6,10 +6,12 @@ export DH_OPTIONS
 DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 DEB_BUILD_ARCH   ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 CONFIGURE_FLAGS=	\
 	--prefix=/usr	\
-	--with-libgda5=yes
+	--with-libgda5=yes \
+	--libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 
 build: build-arch build-indep
 build-arch:
@@ -57,7 +59,7 @@ binary-arch: install
 	dh_installman
 	dh_installpam --name=midgard2	
 	dh_makeshlibs -V
-	dh_shlibdeps -s -l`pwd`/debian/tmp/usr/lib --dpkg-shlibdeps-params=--ignore-missing-info
+	dh_shlibdeps -s -l`pwd`/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH) --dpkg-shlibdeps-params=--ignore-missing-info
 	dh_girepository
 	dh_strip
 	dh_compress
