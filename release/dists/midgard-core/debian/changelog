@@ -2,6 +2,7 @@ midgard2-core (10.05.7.1-3) unstable; urgency=medium
 
   * Compat level set to 9
   * Updated Standards-Version (3.9.3)
+  * Set multi architecture file paths 
   * Removed /etc/dbus-1/system.d/midgard_dbus.conf. Security vulnerability.
   * Closes: #774630
 
